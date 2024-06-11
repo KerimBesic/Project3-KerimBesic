@@ -2,9 +2,9 @@ import React from 'react';
 import { Typography, Box, Container, Grid, Card, CardContent, CardMedia } from '@mui/material';
 
 const teamMembers = [
-  { name: 'Alice Johnson', position: 'Travel Guide', image: '/images/guide1.jpg' },
-  { name: 'Bob Smith', position: 'Travel Blogger', image: '/images/blogger1.jpg' },
-  { name: 'Charlie Brown', position: 'Photographer', image: '/images/photographer1.jpg' },
+  { name: 'Tarik Dautovic', position: 'Travel Guide', image: '/images/guide1.jpg' },
+  { name: 'Kasim Besic', position: 'Travel Blogger', image: '/images/blogger1.jpg' },
+  { name: 'Amila Mehic', position: 'Photographer', image: '/images/photographer1.jpg' },
 ];
 
 const About = () => {

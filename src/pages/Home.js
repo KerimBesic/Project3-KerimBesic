@@ -1,5 +1,5 @@
-import React from 'react';
-import { Typography, Box, Container, Grid, Card, CardContent, CardMedia, Button } from '@mui/material';
+import React, { useState } from 'react';
+import { Typography, Box, Container, Grid, Card, CardContent, CardMedia, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
 
 const featuredDestinations = [
   { id: 1, name: 'Paris', price: 1299.99, image: '/images/paris.jpg' },
@@ -8,6 +8,16 @@ const featuredDestinations = [
 ];
 
 const Home = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Box sx={{ backgroundColor: 'primary.main', color: 'white', py: 8, textAlign: 'center' }}>
@@ -18,6 +28,22 @@ const Home = () => {
           <Typography variant="h6" component="p">
             Discover amazing destinations and travel tips!
           </Typography>
+          <Button variant="outlined" color="secondary" onClick={handleClickOpen}>
+            Subscribe
+          </Button>
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Subscribe</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                To subscribe to this website, please enter your email address here.
+              </DialogContentText>
+              <TextField autoFocus margin="dense" label="Email Address" type="email" fullWidth variant="standard" />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button onClick={handleClose}>Subscribe</Button>
+            </DialogActions>
+          </Dialog>
         </Container>
       </Box>
       <Container sx={{ py: 8 }}>
@@ -68,18 +94,30 @@ const Home = () => {
       </Container>
 
       <Container sx={{ py: 8 }}>
-        <Typography variant="h4" component="h2" gutterBottom>
-          Gallery
-        </Typography>
-        <Grid container spacing={2}>
-          {[1, 2, 3, 4, 5, 6].map((index) => (
-            <Grid item key={index} xs={12} sm={6} md={4}>
-              <img src={`/images/g${index}.jpg`} alt={`Gallery ${index}`} style={{ width: '100%', borderRadius: '8px' }} />
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-
+  <Typography variant="h4" component="h2" gutterBottom>
+    Gallery
+  </Typography>
+  <Grid container spacing={2}>
+    <Grid item xs={12} sm={6} md={4}>
+      <img src="/images/g1.jpg" alt="Gallery 1" style={{ width: '100%', borderRadius: '8px' }} />
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
+      <img src="/images/g2.jpg" alt="Gallery 2" style={{ width: '100%', borderRadius: '8px' }} />
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
+      <img src="/images/g3.jpg" alt="Gallery 2" style={{ width: '100%', borderRadius: '8px' }} />
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
+      <img src="/images/g4.jpg" alt="Gallery 2" style={{ width: '100%', borderRadius: '8px' }} />
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
+      <img src="/images/g5.jpg" alt="Gallery 2" style={{ width: '100%', borderRadius: '8px' }} />
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
+      <img src="/images/g6.jpg" alt="Gallery 2" style={{ width: '100%', borderRadius: '8px' }} />
+    </Grid>
+  </Grid>
+</Container>
 
       <Container sx={{ py: 8 }}>
         <Typography variant="h4" component="h2" gutterBottom>
@@ -95,7 +133,7 @@ const Home = () => {
 
       <Box sx={{ backgroundColor: 'primary.main', color: 'white', py: 4, textAlign: 'center' }}>
         <Container>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" component="p">
             &copy; {new Date().getFullYear()} TravelBlog. All rights reserved.
           </Typography>
         </Container>
